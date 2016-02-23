@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Stats</title>
+    <style>
+        table, th, td {
+            border: 0px solid black;
+        }
+        th, td {
+            padding: 1px;
+            text-align: left
+        }
+    </style>
+</head>
+<body>
+<h1>Boston Bruins 2010-2011 Players</h1>
+
+<table style="width:100%">
+    {% for player in players %}
+        <tr>
+            <th>{{ player.name }}</th>
+            <th>Stats</th>
+        </tr>
+
+        <tr>
+            <td rowspan="4" width="200"><img src={{ player.image_url }} style="height:128px;"></td>
+        </tr>
+
+            <tr>
+                <td>Number: {{ player.number }}</td>
+            </tr>
+            <tr>
+                <td>Position: {{ player.get_player_position_display }}</td>
+            </tr>
+            <tr>
+                <td>Weight: {{ player.weight }}</td>
+            </tr>
+        <tr><th><p></p></th></tr>
+
+
+
+{% endfor %}
+
+</table>
+</body>
+</html>
